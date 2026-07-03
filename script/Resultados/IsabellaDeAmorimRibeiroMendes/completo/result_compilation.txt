@@ -1,0 +1,6 @@
+IsabellaDeAmorimRibeiroMendes.c:16:15: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘=’ token
+   16 |     int vidas = 2;
+      |               ^
+IsabellaDeAmorimRibeiroMendes.c:28:23: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘=’ token
+   28 |     int contaIteracao = 0;
+      |                       ^
