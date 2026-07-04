@@ -1,7 +1,4 @@
 main.c: In function ‘main’:
-main.c:154:20: warning: unused variable ‘config’ [-Wunused-variable]
-  154 |     tConfigInicial config = leConfig(caminhoArquivo);
-      |                    ^~~~~~
-main.c:153:18: warning: unused variable ‘personagens’ [-Wunused-variable]
-  153 |     tPersonagens personagens = lePersonagens(caminhoArquivo);
+main.c:178:18: warning: unused variable ‘personagens’ [-Wunused-variable]
+  178 |     tPersonagens personagens = lePersonagens(argv[1]);
       |                  ^~~~~~~~~~~

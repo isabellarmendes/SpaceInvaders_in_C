@@ -100,7 +100,7 @@ tPersonagens lePersonagens(char * caminhoArquivo){
             novosPersonagens.skinAlien2[i][j] = linha[j];
         }
     }
-    
+    fclose(temp);
     return novosPersonagens;
 }
 
@@ -123,39 +123,70 @@ tConfigInicial leConfig(char * caminhoArquivo){
     char linha[30];
 
     fgets(linha, sizeof(linha), temp);
-    configInicial.funcionalidade = linha[0];
+    configInicial.funcionalidade = linha[0] - '0';
 
     fgets(linha, sizeof(linha), temp);
-    configInicial.num_aliens = linha[0];
-    configInicial.firstAlien = linha[2];
-    configInicial.secondAlien = linha[4];
+    configInicial.num_aliens = linha[0] - '0';
+    configInicial.firstAlien = linha[2] - '0';
+    configInicial.secondAlien = linha[4] - '0';
 
+    fclose(temp);
     return configInicial;
 }
 
 //imprime + cria arquivos
-void geraMapa(){
+void criaHeatmap(int heatmap[11][21]){
     //arquivo_saida.txt
+    for(int i = 0; i < 11; i++){
+        for(int j = 0; j < 21; j++){
+            heatmap[i][j] = 0;
+        }
+    }
+}
 
+void atualizaHeatmap(int heatmap[11][21]){
+    
+}
+
+void geraHeatmap(char * caminhoArquivo, int heatmap[11][21]){
+    //arquivo_saida.txt
+    char caminhoSaida[1200];
+    strcpy(caminhoSaida, caminhoArquivo);
+    strcat(caminhoSaida, "/arquivo_saida.txt");
+
+    FILE * temp;
+    temp = fopen(caminhoSaida, "w");
+
+    for(int i = 0; i < 11; i++){
+        for(int j = 0; j < 21; j++){
+            fprintf(temp, "%02d ", heatmap[i][j]);
+        }
+        fprintf(temp, "\n");
+    }
+    fclose(temp);
 }
 
 
 int main(int argc, char** argv) {
+
+
     //iniciar pedindo o caminho do arquivo
-    char caminhoArquivo[1001];
-    scanf("%s", caminhoArquivo);
-
-    if(caminhoArquivo[strlen(caminhoArquivo) <= 2]){
-        printf("ERRO: Informe o diretório com os arquivos de configuração.");
-        exit(EXIT_FAILURE);
+    if(argc < 2){
+        printf("ERRO: Informe o diretorio com os arquivos de configuracao.");
+        return EXIT_FAILURE;
     }
-
-    tPersonagens personagens = lePersonagens(caminhoArquivo);
-    tConfigInicial config = leConfig(caminhoArquivo);
+    tPersonagens personagens = lePersonagens(argv[1]);
+    tConfigInicial config = leConfig(argv[1]);
     
     //inicializar jogo
 
     //ler acoes
+    printf("func=%d aliens=%d f1=%d f2=%d\n",
+       config.funcionalidade, config.num_aliens,
+       config.firstAlien, config.secondAlien);
+
+    //finaliza jogo
 
     return (EXIT_SUCCESS);
 }
+

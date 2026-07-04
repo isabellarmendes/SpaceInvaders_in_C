@@ -1,1 +1,1 @@
-O arquivo d/personagens.txt nao existe!
+func=1 aliens=4 f1=1 f2=1
