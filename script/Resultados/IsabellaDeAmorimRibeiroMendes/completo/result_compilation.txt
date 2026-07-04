@@ -1,6 +1,7 @@
-IsabellaDeAmorimRibeiroMendes.c:16:15: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘=’ token
-   16 |     int vidas = 2;
-      |               ^
-IsabellaDeAmorimRibeiroMendes.c:28:23: error: expected ‘:’, ‘,’, ‘;’, ‘}’ or ‘__attribute__’ before ‘=’ token
-   28 |     int contaIteracao = 0;
-      |                       ^
+main.c: In function ‘main’:
+main.c:154:20: warning: unused variable ‘config’ [-Wunused-variable]
+  154 |     tConfigInicial config = leConfig(caminhoArquivo);
+      |                    ^~~~~~
+main.c:153:18: warning: unused variable ‘personagens’ [-Wunused-variable]
+  153 |     tPersonagens personagens = lePersonagens(caminhoArquivo);
+      |                  ^~~~~~~~~~~
